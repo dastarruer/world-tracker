@@ -30,11 +30,12 @@
 
     # Everything else basically
     # Override the default git hook to lint .svelte files as well
-    prettier = {
-      enable = true;
-      entry = "${config.git.root}/app/node_modules/.bin/prettier --write --plugin=prettier-plugin-svelte";
-      files = "\\.(js|ts|svelte|css|html)$";
-    };
+    # This refuses to work, disabling for now
+    # prettier = {
+    #   enable = true;
+    #   entry = "${config.git.root}/app/node_modules/.bin/prettier --write --plugin=prettier-plugin-svelte";
+    #   files = "\\.(js|ts|svelte|css|html)$";
+    # };
   };
 
   # Run the sveltekit server
