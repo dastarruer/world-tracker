@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-    --bg: #111111;
-    --bg-alt: #2b2b2b;
-    --text: #dedede;
-    --primary: #5bd5e2;
-    --accent: #f77272;
+	--bg: #111111;
+	--bg-alt: #2b2b2b;
+	--text: #dedede;
+	--primary: #5bd5e2;
+	--accent: #f77272;
 }
 
 /* Remove default styling */
