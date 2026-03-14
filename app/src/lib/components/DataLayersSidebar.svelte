@@ -12,7 +12,7 @@
 
 <style>
   aside {
-    background-color: var(--bg);
+    background-color: var(--bg-alt);
     color: var(--text);
 
     width: 400px;
