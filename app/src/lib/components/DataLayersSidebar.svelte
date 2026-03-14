@@ -75,6 +75,10 @@
 	li {
 		padding: 5px 16px;
 		margin: 5px;
+
+    font-family: 'Source Code Pro Variable', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
 	}
 
 	li:first-child {
