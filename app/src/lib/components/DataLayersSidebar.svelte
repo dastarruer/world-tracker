@@ -16,6 +16,8 @@
     color: var(--text);
 
     width: 400px;
-    height: 700px;
+    height: auto;
+    max-height: 80vh;
+    overflow: hidden;
   }
 </style>
