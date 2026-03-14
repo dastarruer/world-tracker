@@ -47,5 +47,9 @@
 	},
 	"keywords": [
 		"svelte"
-	]
+	],
+	"dependencies": {
+		"@fontsource-variable/orbitron": "^5.2.8",
+		"@fontsource-variable/source-code-pro": "^5.2.7"
+	}
 }

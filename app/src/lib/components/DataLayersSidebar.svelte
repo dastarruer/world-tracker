@@ -28,7 +28,10 @@
 	}
 
 	h1 {
+		font-family: 'Orbitron Variable', sans-serif;
 		font-size: 1.5rem;
+		text-transform: uppercase;
+
 		padding: 16px 20px 0px 20px;
 		margin: 0;
 	}
@@ -74,11 +77,11 @@
 		margin: 5px;
 	}
 
-  li:first-child {
-    margin-top: 0;
-  }
+	li:first-child {
+		margin-top: 0;
+	}
 
-  li:last-child {
-    margin-bottom: 0;
-  }
+	li:last-child {
+		margin-bottom: 0;
+	}
 </style>
