@@ -18,6 +18,6 @@
     width: 400px;
     height: auto;
     max-height: 80vh;
-    overflow: hidden;
+    overflow-y: auto;
   }
 </style>
