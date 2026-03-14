@@ -17,6 +17,8 @@
 	aside {
 		width: 400px;
 
+		border-radius: 10px;
+
 		background-color: var(--bg-alt);
 		color: var(--text);
 	}
