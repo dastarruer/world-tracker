@@ -44,6 +44,8 @@
 	}
 
 	ul {
+		list-style: none;
+
 		display: flex;
 		flex-flow: column nowrap;
 
@@ -53,8 +55,18 @@
 
 		/* Space between divider and list */
 		padding: 12px 0;
-		margin: 0;
-		list-style: none;
+
+		/* Add some spacing between scrollbar and bottom of sidebar */
+		margin-bottom: 12px;
+
+		/* Set scrolbar track and scrollbar to transparent */
+		scrollbar-color: transparent transparent;
+		scrollbar-width: thin;
+		scrollbar-gutter: stable;
+	}
+
+	aside:hover ul {
+		scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 	}
 
 	li {
