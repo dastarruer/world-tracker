@@ -73,4 +73,12 @@
 		padding: 5px 16px;
 		margin: 5px;
 	}
+
+  li:first-child {
+    margin-top: 0;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
 </style>
