@@ -2,10 +2,23 @@
 	import DataLayersSidebar from '$lib/components/DataLayersSidebar.svelte';
 </script>
 
-<DataLayersSidebar></DataLayersSidebar>
+<div class="page-container">
+	<DataLayersSidebar />
+</div>
 
 <style>
-  :root {
-    background-color: var(--bg);
-  }
+	:root {
+		background-color: var(--bg);
+
+    /* Prevent scrolling if sidebar is too long */
+    overflow: hidden;
+	}
+
+	.page-container {
+		display: flex;
+    align-items: center;
+
+    height: 100svh;
+    width: 100vw;
+	}
 </style>
