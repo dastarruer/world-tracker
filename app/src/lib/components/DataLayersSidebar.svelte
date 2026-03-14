@@ -1,5 +1,6 @@
 <aside>
 	<h1>Data Layers</h1>
+	<hr />
 	<ul>
 		<!-- Here for testing purposes as of now; will be removed later -->
 		{#each Array(50) as _, i}
@@ -15,6 +16,9 @@
 
 <style>
 	aside {
+		display: flex;
+		flex-direction: column;
+
 		width: 400px;
 
 		border-radius: 10px;
@@ -23,10 +27,21 @@
 		color: var(--text);
 	}
 
-  h1 {
-    font-size: 1.7rem;
-    margin-left: 12px;
-  }
+	h1 {
+		font-size: 1.5rem;
+		padding: 16px 20px 0px 20px;
+		margin: 0;
+	}
+
+	hr {
+		/* Remove default border */
+		border: 0;
+		height: 1px;
+		background-color: var(--text);
+		opacity: 0.1;
+		width: 370px;
+		align-self: center;
+	}
 
 	ul {
 		display: flex;
@@ -35,10 +50,15 @@
 		height: auto;
 		max-height: 80vh;
 		overflow-y: auto;
+
+		/* Space between divider and list */
+		padding: 12px 0;
+		margin: 0;
+		list-style: none;
 	}
 
 	li {
-		padding: 5px;
+		padding: 5px 16px;
 		margin: 5px;
 	}
 </style>
