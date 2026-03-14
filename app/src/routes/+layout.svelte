@@ -1,6 +1,8 @@
 <script>
 	import '@fontsource-variable/orbitron';
-  import '../app.css'
+	import '@fontsource-variable/source-code-pro';
+
+	import '../app.css';
 </script>
 
 <slot />
