@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   # https://devenv.sh/languages/
   languages = {
     javascript = {
@@ -10,19 +15,30 @@
     typescript.enable = true;
   };
 
-  # https://devenv.sh/packages/
-  packages = [
-    pkgs.docker
-    pkgs.docker-compose
-  ];
+  git-hooks.hooks = {
+    # Nix
+    alejandra.enable = true;
 
-  # Run the sveltekit server
-  processes = {
-    app = {
-      cwd = "./app";
-      exec = "npm run dev";
+    # Typescript
+    eslint.enable = true;
+
+    svelte-check = {
+      name = "svelte-check";
+      entry = "${lib.getExe pkgs.svelte-check} --fail-on-warnings --workspace ${config.git.root}/app --tsconfig ${config.git.root}/app/tsconfig.json";
+      files = "\\.svelte$";
+    };
+
+    # Everything else basically
+    # Override the default git hook to lint .svelte files as well
+    prettier = {
+      enable = true;
+      entry = "${config.git.root}/app/node_modules/.bin/prettier --write --plugin=prettier-plugin-svelte";
+      files = "\\.(js|ts|svelte|css|html)$";
     };
   };
 
-  # See full reference at https://devenv.sh/reference/options/
+  # Run the sveltekit server
+  processes = {
+    app.exec = "npm run dev";
+  };
 }
