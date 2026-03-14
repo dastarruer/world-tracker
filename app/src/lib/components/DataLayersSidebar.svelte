@@ -1,5 +1,5 @@
 <aside>
-	<h2>Data Layers</h2>
+	<h1>Data Layers</h1>
 	<ul>
 		<!-- Here for testing purposes as of now; will be removed later -->
 		{#each Array(50) as _, i}
@@ -22,6 +22,11 @@
 		background-color: var(--bg-alt);
 		color: var(--text);
 	}
+
+  h1 {
+    font-size: 1.7rem;
+    margin-left: 12px;
+  }
 
 	ul {
 		display: flex;
