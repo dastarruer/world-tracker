@@ -1,5 +1,5 @@
 <script>
-	import DataLayersSidebar from '$lib/components/DataLayersSidebar.svelte';
+	import DataLayersSidebar from '$lib/components/data-layers/DataLayersSidebar.svelte';
 </script>
 
 <div class="page-container">
