@@ -21,9 +21,10 @@
 
 		width: 400px;
 
+    border: 1px solid var(--bg-alt);
 		border-radius: 10px;
 
-		background-color: var(--bg-alt);
+		background-color: var(--bg);
 		color: var(--text);
 	}
 
