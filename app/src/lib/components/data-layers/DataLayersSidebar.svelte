@@ -1,3 +1,7 @@
+<script lang="ts">
+	import LayerSwitch from './LayerSwitch.svelte';
+</script>
+
 <aside>
 	<h1>Data Layers</h1>
 	<hr />
@@ -5,10 +9,7 @@
 		<!-- Here for testing purposes as of now; will be removed later -->
 		{#each Array(50) as _, i}
 			<li>
-				<label>
-					<input type="checkbox" name="layer" value="planes" checked />
-					Satellites
-				</label>
+				<LayerSwitch label="Satellites" />
 			</li>
 		{/each}
 	</ul>
@@ -76,10 +77,6 @@
 	li {
 		padding: 5px 16px;
 		margin: 5px;
-
-    font-family: 'Source Code Pro Variable', monospace;
-    font-weight: 500;
-    text-transform: uppercase;
 	}
 
 	li:first-child {
