@@ -69,10 +69,6 @@
 		padding: 15px;
 	}
 
-	.list-container:first-child {
-		margin-top: -10px;
-	}
-
 	.list-container:last-child {
 		margin-bottom: -10px;
 	}
