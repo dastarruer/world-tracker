@@ -1,11 +1,12 @@
 <script lang="ts">
 	import LayerSwitch from './LayerSwitch.svelte';
 	import LayerScrollArea from './LayerScrollArea.svelte';
+  import Separator from './Separator.svelte';
 </script>
 
 <aside>
 	<h1>Data Layers</h1>
-	<hr />
+	<Separator />
 	<LayerScrollArea>
 		{#snippet layers()}
 			<!-- Here for testing purposes as of now; will be removed later -->
@@ -35,17 +36,7 @@
 		font-size: 1.5rem;
 		text-transform: uppercase;
 
-		padding: 16px 20px 0px 20px;
+		padding: 16px 20px 16px 20px;
 		margin: 0;
-	}
-
-	hr {
-		/* Remove default border */
-		border: 0;
-		height: 1px;
-		background-color: var(--text);
-		opacity: 0.1;
-		width: 370px;
-		align-self: center;
 	}
 </style>
