@@ -2,7 +2,7 @@
 	import { Separator } from 'bits-ui';
 </script>
 
-<Separator.Root>
+<Separator.Root decorative={true}>
 	{#snippet child({ props })}
 		<div class="separator" {...props}></div>
 	{/snippet}
