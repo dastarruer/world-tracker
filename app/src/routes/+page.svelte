@@ -7,13 +7,6 @@
 </div>
 
 <style>
-	:root {
-		background-color: var(--bg);
-
-		/* Prevent scrolling if sidebar is too long */
-		overflow: hidden;
-	}
-
 	.page-container {
 		display: flex;
 		align-items: center;
