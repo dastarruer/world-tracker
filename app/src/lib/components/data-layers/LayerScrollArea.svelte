@@ -11,7 +11,7 @@
 
 <ScrollArea.Root type="hover" class="relative mb-3 flex max-h-[80vh] flex-col overflow-hidden py-3">
 	<ScrollArea.Viewport class="h-full w-full">
-		<div class="flex flex-col gap-5 p-[15px] [&:last-child]:mb-[-10px]">
+		<div class="flex flex-col gap-5 p-[15px]">
 			{@render layers()}
 		</div>
 	</ScrollArea.Viewport>
