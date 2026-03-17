@@ -45,10 +45,15 @@
 		"svelte-check": "^4.4.2",
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1",
-        "@tailwindcss/vite": "^4.2.1",
-        "tailwindcss": "^4.2.1"
+		"@tailwindcss/vite": "^4.2.1",
+		"tailwindcss": "^4.2.1"
 	},
 	"keywords": [
 		"svelte"
-	]
+	],
+	"dependencies": {
+		"@fontsource-variable/orbitron": "^5.2.8",
+		"@fontsource-variable/source-code-pro": "^5.2.7",
+		"bits-ui": "^2.16.3"
+	}
 }
