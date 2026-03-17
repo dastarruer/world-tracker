@@ -17,7 +17,7 @@
 
 	<Switch.Root
 		bind:checked
-		class="box-border flex h-[25px] w-[55px] cursor-pointer items-center rounded bg-[var(--bg-alt)] p-[3px] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white data-[state=checked]:bg-[var(--primary)]"
+		class="box-border flex h-[25px] w-[55px] cursor-pointer items-center rounded bg-[var(--bg-alt)] p-[3px] transition-colors duration-200 focus-visible:outline focus-visible:outline-white data-[state=checked]:bg-[var(--primary)]"
 	>
 		<Switch.Thumb
 			class="block h-full w-[25px] rounded-sm bg-white transition-transform duration-200 ease-in-out data-[state=checked]:translate-x-[24px]"
