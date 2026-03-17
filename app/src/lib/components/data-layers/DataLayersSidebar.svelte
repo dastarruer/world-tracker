@@ -22,7 +22,8 @@
 		display: flex;
 		flex-direction: column;
 
-		width: 400px;
+		width: min(400px, calc(100vw - 2rem));
+		max-width: 100%;
 
 		border: 1px solid var(--bg-alt);
 		border-radius: 10px;
