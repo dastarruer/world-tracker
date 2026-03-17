@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
 	--bg: #111111;
@@ -6,6 +6,11 @@
 	--text: #dedede;
 	--primary: #5bd5e2;
 	--accent: #f77272;
+
+	background-color: var(--bg);
+
+	/* Prevent scrolling if sidebar is too long */
+	overflow: hidden;
 }
 
 /* Remove default styling */
@@ -13,11 +18,4 @@ ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-}
-
-:root {
-	background-color: var(--bg);
-
-	/* Prevent scrolling if sidebar is too long */
-	overflow: hidden;
 }
