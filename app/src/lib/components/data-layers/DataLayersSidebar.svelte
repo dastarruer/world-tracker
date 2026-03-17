@@ -1,7 +1,7 @@
 <script lang="ts">
 	import LayerSwitch from './LayerSwitch.svelte';
 	import LayerScrollArea from './LayerScrollArea.svelte';
-  import Separator from './Separator.svelte';
+	import Separator from './Separator.svelte';
 </script>
 
 <aside>

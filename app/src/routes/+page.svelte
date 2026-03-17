@@ -10,15 +10,15 @@
 	:root {
 		background-color: var(--bg);
 
-    /* Prevent scrolling if sidebar is too long */
-    overflow: hidden;
+		/* Prevent scrolling if sidebar is too long */
+		overflow: hidden;
 	}
 
 	.page-container {
 		display: flex;
-    align-items: center;
+		align-items: center;
 
-    height: 100svh;
-    width: 100vw;
+		height: 100svh;
+		width: 100vw;
 	}
 </style>
