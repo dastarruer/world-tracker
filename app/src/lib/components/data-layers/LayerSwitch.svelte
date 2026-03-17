@@ -14,7 +14,6 @@
 	class="flex w-full items-center justify-between font-mono font-medium tracking-wider uppercase"
 >
 	<span>{label}</span>
-
 	<Switch.Root
 		bind:checked
 		class="box-border flex h-[25px] w-[55px] cursor-pointer items-center rounded bg-[var(--bg-alt)] p-[3px] transition-colors duration-200 focus-visible:outline focus-visible:outline-white data-[state=checked]:bg-[var(--primary)]"
