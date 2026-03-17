@@ -3,7 +3,23 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  svelte-check = pkgs.writeShellApplication {
+    name = "svelte-format";
+    runtimeInputs = [pkgs.svelte-check];
+    text = ''
+      svelte-check --fail-on-warnings --workspace ${config.git.root}/app --tsconfig ${config.git.root}/app/tsconfig.json
+    '';
+  };
+  npm-format = pkgs.writeShellApplication {
+    name = "npm-format";
+    runtimeInputs = [pkgs.nodejs_latest];
+    text = ''
+      cd "${config.git.root}/app"
+      npm run format
+    '';
+  };
+in {
   # https://devenv.sh/languages/
   languages = {
     javascript = {
@@ -16,29 +32,25 @@
   };
 
   git-hooks.hooks = {
-    # Nix
     alejandra.enable = true;
 
-    # Typescript
     eslint.enable = true;
 
     svelte-check = {
       name = "svelte-check";
-      entry = "${lib.getExe pkgs.svelte-check} --fail-on-warnings --workspace ${config.git.root}/app --tsconfig ${config.git.root}/app/tsconfig.json";
+      entry = "${lib.getExe svelte-check}";
       files = "\\.svelte$";
     };
 
-    # Everything else basically
-    # Override the default git hook to lint .svelte files as well
-    # This refuses to work, disabling for now
-    # prettier = {
-    #   enable = true;
-    #   entry = "${config.git.root}/app/node_modules/.bin/prettier --write --plugin=prettier-plugin-svelte";
-    #   files = "\\.(js|ts|svelte|css|html)$";
-    # };
+    npm-format = {
+      enable = true;
+      name = "npm-format";
+      entry = "${lib.getExe npm-format}";
+      files = "\\.(js|ts|json|svelte|md|css|html)$";
+      pass_filenames = false;
+    };
   };
 
-  # Run the sveltekit server
   processes = {
     app.exec = "npm run dev";
   };
