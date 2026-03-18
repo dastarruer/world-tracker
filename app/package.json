@@ -37,16 +37,17 @@
 		"@sveltejs/kit": "^2.50.2",
 		"@sveltejs/package": "^2.5.7",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
+		"@tailwindcss/vite": "^4.2.1",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.5.1",
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"publint": "^0.3.17",
 		"svelte": "^5.51.0",
 		"svelte-check": "^4.4.2",
+        "svelte-language-server": "^0.17.29",
+		"tailwindcss": "^4.2.1",
 		"typescript": "^5.9.3",
-		"vite": "^7.3.1",
-		"@tailwindcss/vite": "^4.2.1",
-		"tailwindcss": "^4.2.1"
+		"vite": "^7.3.1"
 	},
 	"keywords": [
 		"svelte"
