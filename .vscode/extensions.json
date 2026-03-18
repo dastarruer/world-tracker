@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"svelte.svelte-vscode",
+        "burke-development.sveltedoc",
+        "dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss"
+	]
+}
