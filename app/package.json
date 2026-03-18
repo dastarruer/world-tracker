@@ -44,6 +44,7 @@
 		"publint": "^0.3.17",
 		"svelte": "^5.51.0",
 		"svelte-check": "^4.4.2",
+        "svelte-language-server": "^0.17.29",
 		"tailwindcss": "^4.2.1",
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1"
@@ -54,7 +55,6 @@
 	"dependencies": {
 		"@fontsource-variable/orbitron": "^5.2.8",
 		"@fontsource-variable/source-code-pro": "^5.2.7",
-		"bits-ui": "^2.16.3",
-		"svelte-language-server": "^0.17.29"
+		"bits-ui": "^2.16.3"
 	}
 }
