@@ -44,7 +44,7 @@
 		"publint": "^0.3.17",
 		"svelte": "^5.51.0",
 		"svelte-check": "^4.4.2",
-        "svelte-language-server": "^0.17.29",
+		"svelte-language-server": "^0.17.29",
 		"tailwindcss": "^4.2.1",
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1"
