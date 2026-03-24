@@ -1,7 +1,7 @@
 {
   "svelte.enable-ts-plugin": true,
   "svelte.plugin.svelte.defaultScriptLanguage": "ts",
-  "svelte.language-server.ls-path": "./app/node_modules/.bin/svelte-language-server",
+  "svelte.language-server.ls-path": "./app/node_modules/.bin/svelteserver",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
