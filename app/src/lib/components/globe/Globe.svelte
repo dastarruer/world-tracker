@@ -19,7 +19,7 @@
 	/>
 </T.PerspectiveCamera>
 
-<T.DirectionalLight position={[10, 20, 10]} intensity={2} castShadow />
+<T.DirectionalLight position={[10, 20, -25]} intensity={25} castShadow />
 <T.AmbientLight color="#d6efff" />
 
 <T.Mesh>
