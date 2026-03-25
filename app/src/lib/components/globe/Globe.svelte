@@ -15,6 +15,7 @@
 		{autoRotate}
 		autoRotateSpeed={1}
 		enableDamping
+		enablePan={false}
 		onstart={() => (autoRotate = false)}
 	/>
 </T.PerspectiveCamera>
