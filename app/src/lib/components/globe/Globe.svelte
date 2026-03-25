@@ -2,6 +2,8 @@
 	import { T } from '@threlte/core';
 	import { OrbitControls } from '@threlte/extras';
 
+	const globeRadius = 2;
+
 	let autoRotate = $state(true);
 </script>
 
@@ -16,6 +18,8 @@
 		autoRotateSpeed={1}
 		enableDamping
 		enablePan={false}
+		maxDistance={10}
+		minDistance={globeRadius + 0.1}
 		onstart={() => (autoRotate = false)}
 	/>
 </T.PerspectiveCamera>
@@ -24,6 +28,6 @@
 <T.AmbientLight color="#d6efff" />
 
 <T.Mesh>
-	<T.SphereGeometry args={[2, 32, 32]} />
+	<T.SphereGeometry args={[globeRadius, 32, 32]} />
 	<T.MeshStandardMaterial color="grey" />
 </T.Mesh>
