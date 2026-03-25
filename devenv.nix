@@ -52,6 +52,9 @@ in {
   };
 
   processes = {
-    app.exec = "npm run dev";
+    app = {
+      exec = "npm run dev";
+      cwd = "${config.git.root}/app";
+    };
   };
 }
