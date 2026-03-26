@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { T } from '@threlte/core';
 	import { OrbitControls, useTexture } from '@threlte/extras';
+	import { Vector2 } from 'three';
 
 	// A larger radius allows for a more detailed normal map, which is important for the visual quality of the globe
-	const globeRadius = 128;
+	const globeRadius = 12.8;
 
 	let autoRotate = $state(true);
 
@@ -25,26 +26,30 @@
 		minDistance={globeRadius + 0.1}
 		onstart={() => (autoRotate = false)}
 	/>
+	<T.DirectionalLight
+		position={[globeRadius * 4, globeRadius * 2, globeRadius * 2]}
+		intensity={2}
+	/>
+	<T.DirectionalLight
+		position={[-globeRadius * 4, globeRadius * 2, globeRadius * 2]}
+		intensity={2}
+	/>
+	<T.DirectionalLight
+		position={[globeRadius * 4, -globeRadius * 2, globeRadius * 2]}
+		intensity={2}
+	/>
+	<T.AmbientLight color="#b9d5ff" intensity={2} />
 </T.PerspectiveCamera>
 
-<T.DirectionalLight
-	position={[50, 10, 50]}
-	intensity={3}
-	oncreate={(ref) => {
-		// Point the light exactly at the center of the globe
-		ref.lookAt(0, 0, 0);
-	}}
-/><T.AmbientLight intensity={0.2} color="#b9d5ff" />
-
-{#await normalMap then value}
+{#await normalMap then normalMap}
 	<T.Mesh>
-		<T.SphereGeometry args={[globeRadius, 300, 300]} />
+		<T.SphereGeometry args={[globeRadius, 450, 450]} />
 		<T.MeshStandardMaterial
-			color="grey"
-			normalMap={value}
-			normalScale={[1, 1]}
-			roughness={0.5}
-			metalness={0.1}
+			color="#050505"
+			roughness={0.8}
+			metalness={0.2}
+			{normalMap}
+			normalScale={[2, 2]}
 		/>
 	</T.Mesh>
 {/await}
