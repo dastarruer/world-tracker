@@ -30,7 +30,7 @@
 		transparent: !isLoaded,
 		opacity: isLoaded ? 1 : 0.3, // Fades the heavy wireframe so it looks better
 		normalMap,
-		normalScale: [2, 2] as [number, number],
+		normalScale: [1, 1] as [number, number],
 		roughness: isLoaded ? 0.8 : 1,
 		metalness: isLoaded ? 0.2 : 0
 	});
