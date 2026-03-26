@@ -63,7 +63,6 @@
 		position={[globeRadius * 4, -globeRadius * 2, globeRadius * 2]}
 		intensity={2}
 	/>
-	<T.AmbientLight color="#b9d5ff" intensity={2} />
 </T.PerspectiveCamera>
 
 <T.Mesh>
