@@ -18,9 +18,11 @@
 		isLoaded = true;
 		normalMap = map;
 
+		// Delay increasing the number of segments to reduce perceived jitter upon loading normal map
+		const timeoutMs = 100;
 		setTimeout(() => {
 			numSegments = 128;
-		}, 100);
+		}, timeoutMs);
 	});
 
 	let materialProps = $derived({
