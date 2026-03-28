@@ -11,11 +11,8 @@
 </div>
 
 <style>
-	:root {
-		background-color: black;
-	}
-
 	div {
+		background-color: black;
 		height: 100%;
 	}
 </style>
