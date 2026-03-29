@@ -35,7 +35,7 @@
       fi
 
       cd "${config.git.root}/app"
-      npm run format
+      npx prettier --write .
     '';
   };
 in {
@@ -84,6 +84,6 @@ in {
   };
 
   enterTest = ''
-    node --version | grep -Fx "${pkgs.nodejs_latest.version}"
+    node --version | grep -Fx "v${pkgs.nodejs_latest.version}"
   '';
 }
