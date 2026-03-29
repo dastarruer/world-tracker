@@ -21,13 +21,6 @@ jobs:
       - name: Install devenv.sh
         run: nix profile add nixpkgs#devenv
 
-      # Without nix unstable, an obscure builder error is thrown
-      - name: Install nix unstable on macOS
-        if: runner.os == 'macOS'
-        run: |
-          nix profile add nixpkgs#nixVersions.latest
-          echo "$HOME/.nix-profile/bin" >> $GITHUB_PATH
-
       - name: Update devenv.lock
         run: devenv update
 
