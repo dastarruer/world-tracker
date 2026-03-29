@@ -1,5 +1,10 @@
 name: "Update devenv.lock"
 
+# Ensure that if the workflow is accidentally triggered twice (i.e. if it is manually triggered at the same time it is scheduled to run), only run it once
+concurrency:
+  group: "update-workflow"
+  cancel-in-progress: false
+
 on:
   schedule:
     - cron: "0 0 * * 6" # Runs weekly on Saturday at midnight UTC
