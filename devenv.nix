@@ -8,9 +8,14 @@
     name = "eslint-wrapper";
     runtimeInputs = [pkgs.nodejs_latest];
     text = ''
-      cd "${config.git.root}/app"
+      # Skip the hook if no relevant files are staged
+      if [ "$#" -eq 0 ]; then
+        exit 0
+      fi
+
+      cd "${config.git.root}"
       # npx ensures we use the local version in /app/node_modules
-      npx eslint . --fix
+      npx --prefix app eslint --fix "$@"
     '';
   };
   svelte-check = pkgs.writeShellApplication {
@@ -46,7 +51,8 @@ in {
     eslint = {
       name = "eslint";
       entry = "${lib.getExe eslint}";
-      files = "\\.(js|ts|svelte)$";
+      files = "^app/.*\\.(js|ts|svelte)$";
+      pass_filenames = true;
     };
 
     svelte-check = {
