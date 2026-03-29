@@ -41,6 +41,9 @@
     '';
   };
 in {
+  # Disable on macos to prevent build issues
+  cachix.enable = !pkgs.stdenv.isDarwin;
+
   # https://devenv.sh/languages/
   languages = {
     javascript = {
