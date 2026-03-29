@@ -35,7 +35,9 @@
       fi
 
       cd "${config.git.root}/app"
-      npx prettier --write "$@"
+
+      # Remove the "app/" prefix from filenames before passing to prettier, since prettier is being run in the /app directory anyways
+      npx prettier --write "''${@#app/}"
     '';
   };
 in {
@@ -71,7 +73,8 @@ in {
       enable = true;
       name = "npm-format";
       entry = "${lib.getExe npm-format}";
-      files = "\\.(js|ts|json|svelte|md|css|html)$";
+      # Only run prettier on files in the /app directory
+      files = "^app/.*\\.(js|ts|json|svelte|md|css|html)$";
       pass_filenames = true;
     };
   };
