@@ -84,6 +84,6 @@ in {
   };
 
   enterTest = ''
-    node --version | grep "${pkgs.nodejs_latest.version}"
+    node --version | grep -Fx "${pkgs.nodejs_latest.version}"
   '';
 }
