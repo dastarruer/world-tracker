@@ -11,14 +11,15 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
 
+    # Use exact commit IDs instead of versions as recommended by Github
     steps:
-    - uses: actions/checkout@v5
-    - uses: cachix/install-nix-action@v31
-    - uses: cachix/cachix-action@v16
-      with:
-        name: devenv
-    - name: Install devenv.sh
-      run: nix profile add nixpkgs#devenv
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+      - uses: cachix/install-nix-action@4eae8bea4afaa8f8ea8aa638ab9a7fead2f3d21e # v31
+      - uses: cachix/cachix-action@97e5ff84d02b3b4f9936339f767e17f03c9252ed # v16
+        with:
+          name: devenv
+      - name: Install devenv.sh
+        run: nix profile add nixpkgs#devenv
 
-    - name: Build the devenv shell and run any pre-commit hooks
-      run: devenv test
+      - name: Build the devenv shell and run any pre-commit hooks
+        run: devenv test
