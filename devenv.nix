@@ -29,6 +29,11 @@
     name = "npm-format";
     runtimeInputs = [pkgs.nodejs_latest];
     text = ''
+      # Skip the hook if no relevant files are staged
+      if [ "$#" -eq 0 ]; then
+        exit 0
+      fi
+
       cd "${config.git.root}/app"
       npm run format
     '';
@@ -52,7 +57,6 @@ in {
       name = "eslint";
       entry = "${lib.getExe eslint}";
       files = "^app/.*\\.(js|ts|svelte)$";
-      pass_filenames = true;
     };
 
     svelte-check = {
@@ -66,7 +70,6 @@ in {
       name = "npm-format";
       entry = "${lib.getExe npm-format}";
       files = "\\.(js|ts|json|svelte|md|css|html)$";
-      pass_filenames = false;
     };
   };
 
