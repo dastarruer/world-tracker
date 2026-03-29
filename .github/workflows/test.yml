@@ -21,10 +21,16 @@ jobs:
       - name: Install devenv.sh
         run: nix profile add nixpkgs#devenv
 
-      # Required for the npm-format hook
+      # Without nix unstable, an obscure builder error is thrown
+      - name: Install nix unstable on macOS
+        if: runner.os == 'macOS'
+        run: |
+          nix profile add nixpkgs#nixVersions.latest
+          echo 'export PATH=$HOME/.nix-profile/bin:$PATH' >> $GITHUB_ENV
+
+      # Required for the npm-format hook and node engine compatibility
       - name: Install npm dependencies
-        # Run inside the devenv shell to use the correct node version
-        run: devenv shell -- bash -c 'cd app && npm install'
+        run: devenv shell -- bash -c 'cd app && npm ci'
 
       - name: Build the devenv shell and run any pre-commit hooks
         run: devenv test
