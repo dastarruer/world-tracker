@@ -4,6 +4,20 @@
   lib,
   ...
 }: let
+  eslint = pkgs.writeShellApplication {
+    name = "eslint-wrapper";
+    runtimeInputs = [pkgs.nodejs_latest];
+    text = ''
+      # Skip the hook if no relevant files are staged
+      if [ "$#" -eq 0 ]; then
+        exit 0
+      fi
+
+      cd "${config.git.root}"
+      # npx ensures we use the local version in /app/node_modules
+      npx --prefix app eslint --fix "$@"
+    '';
+  };
   svelte-check = pkgs.writeShellApplication {
     name = "svelte-format";
     runtimeInputs = [pkgs.svelte-check];
@@ -34,7 +48,12 @@ in {
   git-hooks.hooks = {
     alejandra.enable = true;
 
-    eslint.enable = true;
+    eslint = {
+      name = "eslint";
+      entry = "${lib.getExe eslint}";
+      files = "^app/.*\\.(js|ts|svelte)$";
+      pass_filenames = true;
+    };
 
     svelte-check = {
       name = "svelte-check";
