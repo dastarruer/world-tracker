@@ -23,7 +23,8 @@ jobs:
 
       # Required for the npm-format hook
       - name: Install npm dependencies
-        run: cd app && npm install
+        # Run inside the devenv shell to use the correct node version
+        run: devenv shell -- bash -c 'cd app && npm install'
 
       - name: Build the devenv shell and run any pre-commit hooks
         run: devenv test
