@@ -18,6 +18,15 @@ export default [
 			parserOptions: { parser: ts.parser, extraFileExtensions: ['.svelte'] }
 		}
 	},
+	{
+		rules: {
+			// Allow unused variables that are prepended with a '_'
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+			]
+		}
+	},
 	{ ignores: ['build/', '.svelte-kit/', 'dist/'] },
 	prettier,
 	...svelte.configs['flat/prettier']

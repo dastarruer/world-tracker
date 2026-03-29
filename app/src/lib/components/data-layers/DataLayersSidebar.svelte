@@ -10,7 +10,7 @@
 	<LayerScrollArea>
 		{#snippet layers()}
 			<!-- Here for testing purposes as of now; will be removed later -->
-			{#each Array(50) as _, i}
+			{#each Array(50) as _, i (i)}
 				<LayerSwitch label="Satellites" />
 			{/each}
 		{/snippet}
