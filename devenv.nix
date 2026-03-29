@@ -35,7 +35,7 @@
       fi
 
       cd "${config.git.root}/app"
-      npx prettier --write .
+      npx prettier --write "$@"
     '';
   };
 in {
