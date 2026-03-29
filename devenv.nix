@@ -57,12 +57,14 @@ in {
       name = "eslint";
       entry = "${lib.getExe eslint}";
       files = "^app/.*\\.(js|ts|svelte)$";
+      pass_filenames = true;
     };
 
     svelte-check = {
       name = "svelte-check";
       entry = "${lib.getExe svelte-check}";
       files = "\\.svelte$";
+      pass_filenames = false;
     };
 
     npm-format = {
@@ -70,6 +72,7 @@ in {
       name = "npm-format";
       entry = "${lib.getExe npm-format}";
       files = "\\.(js|ts|json|svelte|md|css|html)$";
+      pass_filenames = true;
     };
   };
 
