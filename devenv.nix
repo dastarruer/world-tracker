@@ -82,4 +82,8 @@ in {
       cwd = "${config.git.root}/app";
     };
   };
+
+  enterTest = ''
+    node --version | grep "${pkgs.nodejs_latest.version}"
+  '';
 }
