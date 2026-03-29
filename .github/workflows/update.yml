@@ -9,10 +9,7 @@ jobs:
   update:
     permissions:
       contents: write
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     # Use exact commit IDs instead of versions as recommended by Github
     steps:
