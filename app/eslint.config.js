@@ -20,6 +20,5 @@ export default [
 	},
 	{ ignores: ['build/', '.svelte-kit/', 'dist/'] },
 	prettier,
-	svelte.configs.prettier,
-	svelte.configs.recommended
+	...svelte.configs['flat/prettier']
 ];
