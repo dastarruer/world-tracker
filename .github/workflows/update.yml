@@ -1,0 +1,51 @@
+name: "Update Devenv Lock"
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Runs weekly on Sunday at midnight UTC
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  update:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    # Use exact commit IDs instead of versions as recommended by Github
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+      - uses: cachix/install-nix-action@4eae8bea4afaa8f8ea8aa638ab9a7fead2f3d21e # v31
+      - uses: cachix/cachix-action@97e5ff84d02b3b4f9936339f767e17f03c9252ed # v16
+        with:
+          name: devenv
+      - name: Install devenv.sh
+        run: nix profile add nixpkgs#devenv
+
+      # Without nix unstable, an obscure builder error is thrown
+      - name: Install nix unstable on macOS
+        if: runner.os == 'macOS'
+        run: |
+          nix profile add nixpkgs#nixVersions.latest
+          echo "$HOME/.nix-profile/bin" >> $GITHUB_PATH
+
+      - name: Update devenv.lock
+        run: devenv update
+
+      - name: Check for changes
+        id: verify-changed-files
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add devenv.lock
+          git commit -m "chore: update devenv.lock"
+          git push
