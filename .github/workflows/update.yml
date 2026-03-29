@@ -1,4 +1,4 @@
-name: "Update Devenv Lock"
+name: "Update devenv.lock"
 
 on:
   schedule:
