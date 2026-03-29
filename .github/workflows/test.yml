@@ -26,7 +26,7 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           nix profile add nixpkgs#nixVersions.latest
-          echo 'export PATH=$HOME/.nix-profile/bin:$PATH' >> $GITHUB_ENV
+          echo "$HOME/.nix-profile/bin" >> $GITHUB_PATH
 
       # Required for the npm-format hook and node engine compatibility
       - name: Install npm dependencies
