@@ -30,6 +30,11 @@
 
 		background-color: var(--bg);
 		color: var(--text);
+
+		/* Disable text selection for all browsers */
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
 	}
 
 	h1 {
