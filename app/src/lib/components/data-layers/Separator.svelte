@@ -4,5 +4,5 @@
 
 <Separator.Root
 	decorative={true}
-	class="h-[1px] w-[calc(100%-30px)] self-center bg-[var(--text)] opacity-10"
+	class="h-px w-[calc(100%-30px)] self-center bg-(--text) opacity-10"
 />
