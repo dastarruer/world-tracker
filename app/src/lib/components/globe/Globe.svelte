@@ -3,7 +3,6 @@
 	import { OrbitControls, useTexture } from '@threlte/extras';
 	import { Texture } from 'three';
 
-	// A larger radius allows for a more detailed normal map, which is important for the visual quality of the globe
 	const globeRadius = 12.8;
 
 	let autoRotate = $state(true);
