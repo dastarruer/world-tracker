@@ -13,7 +13,8 @@
 	let normalMap = $state<Texture | null>(null);
 	let isLoaded = $state(false);
 
-	useKtx2('/js/basis/')
+	// Transcoder files are copied at build time in vite.config.ts
+	useKtx2('/basis/')
 		.loadAsync('/normal-map.ktx2')
 		.then((map) => {
 			isLoaded = true;
