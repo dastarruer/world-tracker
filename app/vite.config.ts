@@ -1,7 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, normalizePath } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
-import Inspect from 'vite-plugin-inspect';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { resolve } from 'path';
 import { existsSync, statSync } from 'fs';
@@ -50,7 +49,6 @@ const vitePluginKtx2 = () => {
 
 export default defineConfig({
 	plugins: [
-		Inspect(),
 		sveltekit(),
 		tailwindcss(),
 		// Copy transcoder files at build time
