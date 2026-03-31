@@ -44,10 +44,6 @@ in {
   # Disable on macos to prevent build issues
   cachix.enable = !pkgs.stdenv.isDarwin;
 
-  packages = [
-    pkgs.ktx-tools
-  ];
-
   # https://devenv.sh/languages/
   languages = {
     javascript = {
