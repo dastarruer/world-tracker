@@ -18,11 +18,12 @@ const vitePluginKtx2 = () => {
 				const inMtime = statSync(input).mtimeMs;
 				const outMtime = statSync(output).mtimeMs;
 				if (outMtime > inMtime) {
-					console.log('[ktx2] up to date, skipping');
+					console.log('ktx2 files are up to date, skipping');
 					return;
 				}
 			}
 
+			console.log('ktx2 files need to be updated, running toktx...');
 			try {
 				execFileSync(
 					'toktx',
