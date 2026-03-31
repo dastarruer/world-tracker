@@ -48,6 +48,8 @@
 		autoRotateSpeed={1}
 		enableDamping
 		enablePan={false}
+		// Disable rotation while loading to further indicate that the globe isn't ready yet
+		enableRotate={isLoaded}
 		maxDistance={globeRadius * 5}
 		minDistance={globeRadius + 0.1}
 		onstart={() => (autoRotate = false)}
