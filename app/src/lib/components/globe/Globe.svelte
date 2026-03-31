@@ -16,7 +16,7 @@
 	// Transcoder files are copied at build time in vite.config.ts
 	useKtx2('/basis/')
 		.loadAsync('/normal-map.ktx2')
-		.then((map) => {
+		.then((map: Texture) => {
 			isLoaded = true;
 			normalMap = map;
 
