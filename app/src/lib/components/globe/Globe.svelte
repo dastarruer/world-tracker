@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { T } from '@threlte/core';
-	import { OrbitControls, useTexture } from '@threlte/extras';
+	import { OrbitControls, useKtx2 } from '@threlte/extras';
 	import { Texture } from 'three';
 
 	const globeRadius = 12.8;
@@ -13,16 +13,16 @@
 	let normalMap = $state<Texture | null>(null);
 	let isLoaded = $state(false);
 
-	useTexture('/normal-map.png').then((map) => {
-		isLoaded = true;
-		normalMap = map;
+	// Transcoder files are copied at build time in vite.config.ts
+	useKtx2('/basis/')
+		.loadAsync('/normal-map.ktx2')
+		.then((map: Texture) => {
+			isLoaded = true;
+			normalMap = map;
 
-		// Delay increasing the number of segments to reduce perceived jitter upon loading normal map
-		const timeoutMs = 100;
-		setTimeout(() => {
+			// Then use a higher number of segments to make the globe look smoother
 			numSegments = 128;
-		}, timeoutMs);
-	});
+		});
 
 	let materialProps = $derived({
 		color: '#050505',
@@ -31,7 +31,7 @@
 		transparent: !isLoaded,
 		opacity: isLoaded ? 1 : 0.3, // Fades the heavy wireframe so it looks better
 		normalMap,
-		normalScale: [1, 1] as [number, number],
+		normalScale: [1.5, 1.5] as [number, number],
 		roughness: isLoaded ? 0.8 : 1,
 		metalness: isLoaded ? 0.2 : 0
 	});
@@ -66,7 +66,8 @@
 	/>
 </T.PerspectiveCamera>
 
-<T.Mesh>
+<!-- Flip the sphere so that the normal map is right side up -->
+<T.Mesh scale={[1, -1, 1]}>
 	<T.SphereGeometry args={[globeRadius, numSegments, numSegments]} />
 	<T.MeshStandardMaterial {...materialProps} />
 </T.Mesh>
