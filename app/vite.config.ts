@@ -52,7 +52,7 @@ const vitePluginKtx2 = () => {
 
 				// Write the result
 				writeFileSync(ktx2Img, Buffer.from(ktx2Buffer));
-				console.log('ktx2 successfully created ${output}');
+				console.log(`ktx2 successfully created ${ktx2Img}`);
 			} catch (e) {
 				console.error('ktx2 conversion failed:');
 				throw e instanceof Error ? e : new Error(String(e));
