@@ -2,7 +2,4 @@
 	import { Separator } from 'bits-ui';
 </script>
 
-<Separator.Root
-	decorative={true}
-	class="h-[1px] w-[calc(100%-30px)] self-center bg-[var(--text)] opacity-10"
-/>
+<Separator.Root decorative={true} class="mx-4 h-px self-stretch bg-(--text) opacity-10" />
