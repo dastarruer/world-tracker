@@ -1,11 +1,35 @@
 <script lang="ts">
-	import { T } from '@threlte/core';
+	import { T, useThrelte } from '@threlte/core';
 	import { OrbitControls, useKtx2 } from '@threlte/extras';
-	import { Texture } from 'three';
+	import { untrack } from 'svelte';
+	import { PerspectiveCamera, Texture } from 'three';
 
 	const globeRadius = 12.8;
 
 	let autoRotate = $state(true);
+
+	let zoom = $state(1);
+	let fov = $derived(50 * 2);
+
+	const { camera } = useThrelte();
+
+	$effect(() => {
+		if (!($camera instanceof PerspectiveCamera)) return;
+
+		// Declare fov here so the effect reruns when fov changes
+		const currentFov = fov;
+
+		// Putting $camera in this method will not rerun the effect when they
+		// change.
+		// Otherwise, everytime the camera changes, the effect will rerun,
+		// causing infinite loops.
+		untrack(() => {
+			const cam = $camera as PerspectiveCamera;
+			cam.fov = currentFov;
+			cam.updateProjectionMatrix();
+			console.log('Camera FOV updated:', fov);
+		});
+	});
 
 	// Before the map loads, use a low number of segments to make the wireframe have less lines
 	let numSegments = $state(20);
@@ -39,6 +63,7 @@
 
 <T.PerspectiveCamera
 	makeDefault
+	{zoom}
 	position={[globeRadius * 3.5, 0, 0]}
 	// No matter where the camera moves, always keep the mesh centered
 	oncreate={(ref) => ref.lookAt(0, 0, 0)}
